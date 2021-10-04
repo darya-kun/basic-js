@@ -14,7 +14,15 @@ import { NotImplementedError } from '../extensions/index.js';
  * ]) => 3`
  *
  */
-export default function countCats(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function countCats(matrix) {
+  // Методом flat() возвращам новый массив, в котором все элементы вложенных подмассивов были рекурсивно "подняты" на указанный уровень depth.
+  let arr = matrix.flat();
+  let catsCounter = 0;
+  // Перебираем массив в поиске строки '^^' и складываем их в счетчик catsCounter
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i]=='^^'){
+      catsCounter++;
+    }
+  }
+  return catsCounter;
 }
